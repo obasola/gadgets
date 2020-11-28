@@ -47,9 +47,6 @@ public class Customer {
 	private Timestamp lastUpdated = DateUtil.currentTimestamp;
 	
 
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "payment_id")
-	private Payment payment;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "address_id", referencedColumnName = "address_id", insertable = false, updatable = false)
@@ -77,7 +74,7 @@ public class Customer {
 		this.lastUpdated = DateUtil.currentTimestamp;
 	}
 	public Customer(Store store, String firstName, String lastName, String email, boolean active, Address address,
-			Date createDate, Timestamp lastUpdated, Payment payment, Address billingAddress, Address shippingAddress,
+			Date createDate, Timestamp lastUpdated, Address billingAddress, Address shippingAddress,
 			Set<Rental> rentals) {
 		super();
 		this.store = store;
@@ -88,7 +85,7 @@ public class Customer {
 		this.address = address;
 		this.createDate = createDate;
 		this.lastUpdated = lastUpdated;
-		this.payment = payment;
+		
 		this.billingAddress = billingAddress;
 		this.shippingAddress = shippingAddress;
 		this.rentals = rentals;
@@ -120,9 +117,7 @@ public class Customer {
 	public Timestamp getLastUpdated() {
 		return lastUpdated;
 	}
-	public Payment getPayment() {
-		return payment;
-	}
+	
 	public Address getBillingAddress() {
 		return billingAddress;
 	}
