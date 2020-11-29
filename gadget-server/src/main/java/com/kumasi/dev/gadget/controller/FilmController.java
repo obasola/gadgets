@@ -20,7 +20,7 @@ import com.kumasi.dev.gadget.domain.Film;
 import com.kumasi.dev.gadget.service.FilmServiceImpl;
 
 @RestController
-@RequestMapping(path = "/rest/api")
+@RequestMapping(path = "/api/backend")
 public class FilmController {
 	@Autowired
 	private FilmServiceImpl repo;

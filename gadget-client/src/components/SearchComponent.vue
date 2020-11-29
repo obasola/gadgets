@@ -9,13 +9,14 @@
 
 <script>
 export default {
+  name: "Search",
   data: {
-    searchFld: ''
-  }
+    searchFld: "",
+  },
   methods: {
-    searchClicked: function() {
+    searchClicked: function () {
       console.log("search  btn clicked");
-    }
-  }
-}
+    },
+  },
+};
 </script>
