@@ -1,4 +1,4 @@
-# Quasar App (gadget-client)
+# Quasar App (gadget-app)
 
 A Quasar Framework app
 
