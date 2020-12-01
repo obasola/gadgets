@@ -13,6 +13,6 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
 	public Film findById(int id);
 	
 	public Film save(Film film);
-	//public void delete(int id);
+	public void delete(Film film);
 	
 }

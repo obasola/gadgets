@@ -107,7 +107,8 @@ public class FilmController {
 	@DeleteMapping("/films/{id}")
 	public ResponseEntity<HttpStatus> deleteFilm(@PathVariable("id") int id) {
 		try {
-			repo.delete(id);
+			Film film = repo.findById(id);
+			repo.delete(film);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

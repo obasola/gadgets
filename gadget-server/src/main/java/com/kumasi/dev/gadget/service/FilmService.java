@@ -10,5 +10,5 @@ public interface FilmService {
 	public Film findById(int id);
 	
 	public Film save(Film film);
-	public void delete(int id);
+	public void delete(Film film);
 }

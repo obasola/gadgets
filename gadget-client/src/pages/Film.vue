@@ -35,6 +35,12 @@ export default {
               {id: 5, title: "Black Panther", description: "Marvell blockbuster 2...", year: "2018", rating: "PG", rental: "11.95"}
             ]
         }
+    },
+    mounted() {
+      axios.get("http://localhost:3000/api/backend/films")
+      .then(response => {
+        this.films = response.data.results;
+      })
     }
 }
 </script>

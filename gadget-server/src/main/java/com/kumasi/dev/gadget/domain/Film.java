@@ -41,7 +41,7 @@ public class Film {
 	@Column(name = "replacement_cost")
 	private double replacementCost;
 	private int length;
-	@Column(name = "special_feature")
+	@Column(name = "special_features")
 	private String specialFeature;
 	private Rating rating;
 	
