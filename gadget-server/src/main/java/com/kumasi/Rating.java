@@ -3,20 +3,20 @@ package com.kumasi;
 public enum Rating {
 	G, PG, PG_13, NC_17, R, MA;
 
-	public String getRating() {
+	public Object getRating() {
 		switch (this) {
 		case G:
-			return "G";
+			return Rating.G;
 		case PG:
-			return "PG";
+			return Rating.PG;
 		case PG_13:
-			return "PG-13";
+			return Rating.PG_13;
 		case NC_17:
-			return "NC-17";
+			return Rating.NC_17;
 		case R:
-			return "R";
+			return Rating.R;
 		case MA:
-			return "MA";
+			return Rating.MA;
 		default:
 			return null;
 		}

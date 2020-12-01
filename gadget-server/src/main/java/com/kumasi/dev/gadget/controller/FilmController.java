@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,11 +29,12 @@ public class FilmController {
 	//@Autowired
 	//private FilmRepository repo;
 
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(path = "/film/id")
 	public @ResponseBody Film getFilm(@PathVariable int id) {
 		return repo.findById(id);
 	}
-
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/films")
 	public ResponseEntity<List<Film>> getAllFilms() {
 		try {
@@ -45,7 +47,7 @@ public class FilmController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/films/{title}")
 	public ResponseEntity<Film> getFilmByTitle(@PathVariable("title") String title) {
 		try {
@@ -63,7 +65,7 @@ public class FilmController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/films/{id}")
 	public ResponseEntity<Film> getFilmById(@PathVariable("id") int id) {
 		Film filmData = repo.findById(id);
@@ -74,7 +76,7 @@ public class FilmController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/films")
 	public ResponseEntity<Film> createFilm(@RequestBody Film film) {
 		try {
@@ -87,7 +89,7 @@ public class FilmController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	@CrossOrigin(origins = "http://localhost:3000")
 	@PutMapping("/films/{id}")
 	public ResponseEntity<Film> updateFilm(@PathVariable("id") int id, @RequestBody Film film) {
 		Film filmData = repo.findById(id);
@@ -103,7 +105,7 @@ public class FilmController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+	@CrossOrigin(origins = "http://localhost:3000")
 	@DeleteMapping("/films/{id}")
 	public ResponseEntity<HttpStatus> deleteFilm(@PathVariable("id") int id) {
 		try {

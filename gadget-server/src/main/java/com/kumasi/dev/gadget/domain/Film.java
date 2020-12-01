@@ -43,7 +43,7 @@ public class Film {
 	private int length;
 	@Column(name = "special_features")
 	private String specialFeature;
-	private Rating rating;
+	private String rating;
 	
 	@Column(name = "last_update")
 	private Timestamp lastUpdate = DateUtil.currentTimestamp;
@@ -63,7 +63,7 @@ public class Film {
 
 	public Film(Language language, Language origLanguage, String title, String description, int rentalDuration,
 			double rentalRate, Date releaseYear, double replacementCost, int length, String specialFeature,
-			Timestamp lastUpdate) {
+			Timestamp lastUpdate, String rating) {
 		super();
 		this.language = language;
 		this.origLanguage = origLanguage;
@@ -75,7 +75,7 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.length = length;
 		this.specialFeature = specialFeature;
-		this.rating = Rating.G;
+		this.rating = rating;
 		this.lastUpdate = lastUpdate;
 	}
 
@@ -159,7 +159,7 @@ public class Film {
 	/**
 	 * @return the ratings
 	 */
-	public Rating getRating() {
+	public String getRating() {
 		return rating;
 	}
 
