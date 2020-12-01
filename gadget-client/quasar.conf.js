@@ -77,7 +77,19 @@ cfg.module.rules.push({
     devServer: {
       https: false,
       port: 3000,
-      open: true // opens browser window automatically
+      open: true, // opens browser window automatically
+      proxy: {
+        '/rest': {
+          target: 'http://localhost:8080',
+          ws: true,
+          changeOrigin: true
+        },
+        '/fileUpload': {
+          target: 'http://localhost:8080',
+          ws: true,
+          changeOrigin: true
+        }
+      }
     },
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework

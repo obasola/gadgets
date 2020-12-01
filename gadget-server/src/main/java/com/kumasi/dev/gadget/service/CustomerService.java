@@ -5,6 +5,7 @@ import java.util.List;
 import com.kumasi.dev.gadget.domain.Customer;
 
 public interface CustomerService {
+	public List<Customer> findAll();
 	public List<Customer> findByLastName(String lname);
 	public Customer findByEmail(String email);
 	public Customer findById(int id);

@@ -37,7 +37,9 @@ export default {
         }
     },
     mounted() {
-      this.$axios.get("http://localhost:8080/films")
+      this.$axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
+      this.$axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+      this.$axios.get("http://localhost:8080/films/")
       .then(response => {
         this.films = response.data.results;
       })

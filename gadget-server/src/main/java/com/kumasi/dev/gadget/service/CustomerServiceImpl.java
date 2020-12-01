@@ -38,4 +38,9 @@ public class CustomerServiceImpl implements CustomerService {
 		repo.delete(customer);
 	}
 
+	@Override
+	public List<Customer> findAll() {
+		return (List<Customer>) repo.findAll();
+	}
+
 }

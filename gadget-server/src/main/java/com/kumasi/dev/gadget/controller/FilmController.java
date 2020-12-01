@@ -21,7 +21,6 @@ import com.kumasi.dev.gadget.domain.Film;
 import com.kumasi.dev.gadget.service.FilmServiceImpl;
 
 @RestController
-@RequestMapping(path = "/api/backend")
 public class FilmController {
 	@Autowired
 	private FilmServiceImpl repo;
@@ -30,12 +29,12 @@ public class FilmController {
 	//private FilmRepository repo;
 
 	@CrossOrigin(origins = "http://localhost:3000")
-	@GetMapping(path = "/film/id")
+	@GetMapping(path = "/rest/film/id")
 	public @ResponseBody Film getFilm(@PathVariable int id) {
 		return repo.findById(id);
 	}
 	@CrossOrigin(origins = "http://localhost:3000")
-	@GetMapping("/films")
+	@GetMapping("/rest/films")
 	public ResponseEntity<List<Film>> getAllFilms() {
 		try {
 			List<Film> movies = new ArrayList<Film>();
@@ -48,7 +47,7 @@ public class FilmController {
 		}
 	}
 	@CrossOrigin(origins = "http://localhost:3000")
-	@GetMapping("/films/{title}")
+	@GetMapping("/rest/films/{title}")
 	public ResponseEntity<Film> getFilmByTitle(@PathVariable("title") String title) {
 		try {
 			List<Film> films = new ArrayList<Film>();
@@ -66,7 +65,7 @@ public class FilmController {
 		}
 	}
 	@CrossOrigin(origins = "http://localhost:3000")
-	@GetMapping("/films/{id}")
+	@GetMapping("/rest/films/{id}")
 	public ResponseEntity<Film> getFilmById(@PathVariable("id") int id) {
 		Film filmData = repo.findById(id);
 
@@ -77,7 +76,7 @@ public class FilmController {
 		}
 	}
 	@CrossOrigin(origins = "http://localhost:3000")
-	@PostMapping("/films")
+	@PostMapping("/rest/films")
 	public ResponseEntity<Film> createFilm(@RequestBody Film film) {
 		try {
 			Film instance = new Film(film.getLanguage(), film.getTitle(), film.getRentalDuration(),
@@ -90,7 +89,7 @@ public class FilmController {
 		}
 	}
 	@CrossOrigin(origins = "http://localhost:3000")
-	@PutMapping("/films/{id}")
+	@PutMapping("/rest/films/{id}")
 	public ResponseEntity<Film> updateFilm(@PathVariable("id") int id, @RequestBody Film film) {
 		Film filmData = repo.findById(id);
 
@@ -106,7 +105,7 @@ public class FilmController {
 		}
 	}
 	@CrossOrigin(origins = "http://localhost:3000")
-	@DeleteMapping("/films/{id}")
+	@DeleteMapping("/restfilms/{id}")
 	public ResponseEntity<HttpStatus> deleteFilm(@PathVariable("id") int id) {
 		try {
 			Film film = repo.findById(id);
