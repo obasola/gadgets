@@ -1,40 +1,28 @@
 <template>
-  
-  <q-list>
-    
-      <div>
-        <CustomerSearch />
-      </div>
-    
-   
-      <div>
-        <CustomerList/>
-      </div>
-    
-      <div>
-        <CustomerEdit/>
-      </div>
-    
-  </q-list>
+  <q-page padding>
+    <!-- content -->
+    <h1>Customers</h1>
+  </q-page>
 </template>
+
 
 <style lang="css"></style>
 
 <script>
-import CustomerEdit from '../components/CustomerEdit.vue'
-import CustomerList from '../components/CustomerList.vue'
-import CustomerSearch from '../components/CustomerSearch.vue'
-import QCollapsible from 'quasar'
-
 export default {
-  components: { CustomerList, CustomerEdit, CustomerSearch },
   data() {
     return {
-      customer: {}
+      customers: []
     }
   },
   methods: {
      
+  },
+  mounted() {
+    axios.get("http://localhost:3000/api/backend/customers")
+    .then(response => {
+      this.customers = response.data.results
+    })
   }
 }
 </script>

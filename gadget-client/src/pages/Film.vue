@@ -12,9 +12,9 @@
       <tr v-for="film in  films" :key="film.id">
         <td>{{film.title}}</td>
         <td>{{film.description}}</td>
-        <td>{{film.year}}</td>
+        <td>{{film.releaseYear}}</td>
         <td>{{film.rating}}</td>
-        <td>{{film.rental}}</td>
+        <td>{{film.rentalRate}}</td>
       </tr>
     </table>
   </q-page>
@@ -41,7 +41,7 @@ export default {
       this.$axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
       this.$axios.get("http://localhost:8080/films/")
       .then(response => {
-        this.films = response.data.results;
+        this.films = response.data._embedded.films;
       })
     }
 }
