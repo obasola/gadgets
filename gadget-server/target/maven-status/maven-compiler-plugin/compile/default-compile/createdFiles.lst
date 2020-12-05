@@ -24,6 +24,7 @@ com/kumasi/PersistenceContext.class
 com/kumasi/dev/gadget/controller/CustomerController.class
 com/kumasi/dev/gadget/domain/City.class
 com/kumasi/DateUtil.class
+com/kumasi/RestConfiguration.class
 com/kumasi/dev/gadget/service/FilmServiceImpl.class
 com/kumasi/dev/gadget/domain/Store.class
 com/kumasi/dev/gadget/domain/Payment.class

@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kumasi.dev.gadget.domain.Film;
 import com.kumasi.dev.gadget.service.FilmServiceImpl;
 
+@CrossOrigin(origins = { "http://localhost:3000"})
 @RestController
-@RequestMapping(path = "/api/backend")
 public class FilmController {
 	@Autowired
 	private FilmServiceImpl repo;
@@ -29,12 +29,11 @@ public class FilmController {
 	//@Autowired
 	//private FilmRepository repo;
 
-	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping(path = "/film/id")
 	public @ResponseBody Film getFilm(@PathVariable int id) {
 		return repo.findById(id);
 	}
-	@CrossOrigin(origins = "http://localhost:3000")
+	
 	@GetMapping("/films")
 	public ResponseEntity<List<Film>> getAllFilms() {
 		try {
@@ -47,7 +46,7 @@ public class FilmController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@CrossOrigin(origins = "http://localhost:3000")
+	
 	@GetMapping("/films/{title}")
 	public ResponseEntity<Film> getFilmByTitle(@PathVariable("title") String title) {
 		try {
@@ -65,7 +64,7 @@ public class FilmController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@CrossOrigin(origins = "http://localhost:3000")
+	
 	@GetMapping("/films/{id}")
 	public ResponseEntity<Film> getFilmById(@PathVariable("id") int id) {
 		Film filmData = repo.findById(id);
@@ -76,7 +75,7 @@ public class FilmController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	@CrossOrigin(origins = "http://localhost:3000")
+	
 	@PostMapping("/films")
 	public ResponseEntity<Film> createFilm(@RequestBody Film film) {
 		try {
@@ -89,7 +88,7 @@ public class FilmController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@CrossOrigin(origins = "http://localhost:3000")
+	
 	@PutMapping("/films/{id}")
 	public ResponseEntity<Film> updateFilm(@PathVariable("id") int id, @RequestBody Film film) {
 		Film filmData = repo.findById(id);
@@ -105,7 +104,7 @@ public class FilmController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	@CrossOrigin(origins = "http://localhost:3000")
+
 	@DeleteMapping("/films/{id}")
 	public ResponseEntity<HttpStatus> deleteFilm(@PathVariable("id") int id) {
 		try {

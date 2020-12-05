@@ -19,7 +19,7 @@ export default {
      
   },
   mounted() {
-    axios.get("http://localhost:3000/api/backend/customers")
+    axios.get("http://localhost:8080/customers")
     .then(response => {
       this.customers = response.data.results
     })

@@ -24,6 +24,7 @@
 /Users/darrylthompson/devWS/gadgets/gadget-server/src/main/java/com/kumasi/dev/gadget/controller/FilmController.java
 /Users/darrylthompson/devWS/gadgets/gadget-server/src/main/java/com/kumasi/dev/gadget/repository/PaymentRepository.java
 /Users/darrylthompson/devWS/gadgets/gadget-server/src/main/java/com/kumasi/dev/gadget/domain/Customer.java
+/Users/darrylthompson/devWS/gadgets/gadget-server/src/main/java/com/kumasi/RestConfiguration.java
 /Users/darrylthompson/devWS/gadgets/gadget-server/src/main/java/com/kumasi/dev/gadget/repository/InventoryRepository.java
 /Users/darrylthompson/devWS/gadgets/gadget-server/src/main/java/com/kumasi/PersistenceContext.java
 /Users/darrylthompson/devWS/gadgets/gadget-server/src/main/java/com/kumasi/dev/gadget/repository/AddressRepository.java
