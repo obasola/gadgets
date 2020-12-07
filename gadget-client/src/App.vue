@@ -1,10 +1,18 @@
+
+//App.vue
 <template>
-  <div id="q-app">
-    <router-view />
+  <div id="app">
+    <Navbar />
+  
   </div>
 </template>
 <script>
-export default {
-  name: 'App'
-}
+ //import HelloWorld from './components/HelloWorld.vue'
+  import Navbar from './components/Navbar.vue';  
+  export default {
+    name: 'navbar',
+    components: {
+      Navbar
+    }
+  }
 </script>

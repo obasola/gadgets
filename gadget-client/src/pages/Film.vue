@@ -1,23 +1,23 @@
 <template>
-  <q-page padding>
+  <div>
     <h1>Movies</h1>
-    <table>
-      <tr class="light-blue-6">
-        <th>Title</th>
-        <th>description</th>
-        <th>Year</th>
-        <th>Rating</th>
-        <th>Rental Rate</th>
-      </tr>
-      <tr v-for="film in  films" :key="film.id">
-        <td>{{film.title}}</td>
-        <td>{{film.description}}</td>
-        <td>{{film.releaseYear}}</td>
-        <td>{{film.rating}}</td>
-        <td>{{film.rentalRate}}</td>
-      </tr>
-    </table>
-  </q-page>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      first-text="First"
+      prev-text="Prev"
+      next-text="Next"
+      last-text="Last"
+    ></b-pagination>
+     <b-table striped hover :items="films" :fields="fields" :sticky-header="false">
+       <!-- A custom formatted column -->
+        <template #cell(title)="data">
+        <i>{{ data.item.title | capitalize}}</i>
+      </template>
+
+     </b-table>
+  </div>
 </template>
 
 <script>
@@ -29,17 +29,24 @@ export default {
         return {
             confirm: false,
             showEditTask: false,
-            films: [
-              {id: 1, title: "Aliens", description: "They are among us...", year: "1991", rating: "PG-13", rental: "5.95"},
-              {id: 3, title: "Avengers", description: "Marvell blockbuster 1...", year: "2003", rating: "NC-17", rental: "9.95"},
-              {id: 5, title: "Black Panther", description: "Marvell blockbuster 2...", year: "2018", rating: "PG", rental: "11.95"}
+            rows: 100,
+            perPage: 10,
+            currentPage: 1,
+            films: [],
+            fields: [
+              {key: 'title', label: 'Title', sortable: true},
+              {key: 'description', label: 'Description', sortable: true},
+              {key: 'releaseYear', label: 'Release Year', sortable: true},
+              {key: 'rating', label: 'Rated', sortable: true},
+              {key: 'rentalRate', label: 'Rental Rate', sortable: true},
             ]
+            
         }
     },
     mounted() {
-      this.$axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
-      this.$axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-      this.$axios.get("http://localhost:8080/films/")
+      this.axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
+      this.axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+      this.axios.get("http://localhost:8080/films/")
       .then(response => {
         this.films = response.data._embedded.films;
       })
